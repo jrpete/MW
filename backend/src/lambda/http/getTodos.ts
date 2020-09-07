@@ -1,12 +1,13 @@
-import 'source-map-support/register'
-import { APIGatewayProxyEvent, APIGatewayProxyResult, APIGatewayProxyHandler } from 'aws-lambda'
+// import 'source-map-support/register'
+import { APIGatewayProxyEvent, APIGatewayProxyResult, APIGatewayProxyHandler } from 'aws-lambda';
 import { getUserId} from "../utils";
 import {getAllTodoItems} from "../../businessLogic/allTodos";
-import { createLogger } from '../../utils/logger'
+import { createLogger } from '../../utils/logger';
 
 const logger = createLogger('getTodos')
 
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+  console.log(event);
   // TODO: Get all TODO items for a current user
   // console.log('event:', event)
   logger.info('Received Event', event)
